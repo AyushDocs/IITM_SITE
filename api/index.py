@@ -18,5 +18,5 @@ class handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type','application/json')
         self.end_headers()
-        self.wfile.write(json.dumps({ "marks": [d for d in data if data['name'] in names] }).encode('utf-8'))
+        self.wfile.write(json.dumps({ "marks": [d['marks'] for d in data if data['name'] in names].join(' ') }).encode('utf-8'))
         return
