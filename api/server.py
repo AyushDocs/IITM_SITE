@@ -12,7 +12,7 @@ data=load_data()
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         query_params = parse_qs(urlparse(self.path).query)
-        names = query_params.get('names', [])
+        names = query_params.get('name', [])
         names = [name[0] for name in names]
         
         self.send_response(200)
